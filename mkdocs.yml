@@ -1,0 +1,21 @@
+site_name: "Документация проекта"
+theme:
+  name: "material"
+
+extra:
+  version:
+    provider: mike
+
+nav:
+  - Home: index.md
+  - page1: 1.md
+  - page2: 2.md
+  - test: 3.md
+  - page3: 4.md
+  - iqbot: iQBot_API.md
+  - www: www.md
+
+plugins:
+  - search
+
+repo_url: https://github.com/edwardozzz/docs-repo

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>iqbot - Документация проекта</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../css/version-select.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Документация проекта</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../1/" class="nav-link">page1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../2/" class="nav-link">page2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../3/" class="nav-link">test</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../4/" class="nav-link">page3</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">iqbot</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../www/" class="nav-link">www</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../4/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../www/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/edwardozzz/docs-repo/edit/master/docs/iQBot_API.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Описание</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-" class="nav-link">Взаимодействие с бот-платформой</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>Greeniq4</p>
+<h1 id="_1">Описание</h1>
+<p>Программный интерфейс iQBot API позволяет отправлять сообщения клиентов из iQChannels в бот-платформу.</p>
+<h1 id="-">Взаимодействие с бот-платформой</h1>
+<p><strong>Все запросы в бот-платформу отправляются в формате JSON.</strong></p>
+<p><strong>Для всех запросов необходимо указывать Content-Type: application/json</strong></p>
+<h3 id="-_1"><strong>Авторизация в бот-платформе</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Метод</td>
+<td>POST</td>
+<td></td>
+</tr>
+<tr>
+<td>Путь</td>
+<td>/api/v1/auth/login/basic/default</td>
+<td></td>
+</tr>
+<tr>
+<td>Запрос</td>
+<td></td>
+<td>Параметр</td>
+</tr>
+<tr>
+<td>Ответ</td>
+<td></td>
+<td>Параметр</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Пример запроса:</strong></p>
+<p>js{
+"email": "superbot@bot.ru",
+"password": "password"
+}</p>
+<p><strong>Пример ответа:</strong></p>
+<p>js{
+"status": "success",
+"message": "Login successful",
+"payload": {
+"jwt": "eyJhbGciOiJIUzI.......w3SfREY",
+"exp": 3600000
+}
+}</p>
+<h3 id="-_2"><strong>Отправка сообщения в бот-платформу</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Метод</td>
+<td>POST</td>
+<td></td>
+</tr>
+<tr>
+<td>Путь</td>
+<td>api/v1/bots/<strong><em>chat-bank</em></strong>/converse/<strong><em>sid</em></strong>/secured</td>
+<td>botID - идентификатор чат-бота в бот-платформе  sid - уникальный идентификатор сессии для текущего диалога</td>
+</tr>
+<tr>
+<td>Авторизация</td>
+<td>Bearer</td>
+<td>Токен берем из ответа на запрос авторизации</td>
+</tr>
+<tr>
+<td>Запрос</td>
+<td></td>
+<td>Параметр</td>
+</tr>
+<tr>
+<td>Ответ</td>
+<td></td>
+<td>Параметр</td>
+</tr>
+</tbody>
+</table>
+<p>Пример запроса:</p>
+<p>js{
+"type": "text",
+"text": "До которого часа работает банк?"
+}</p>
+<p>Пример ответа:</p>
+<p>js{
+"responses": [
+{
+"type": "text",
+"text": "Переключаю вас на оператора",
+"markdown": true,
+"groupid": "100"
+}
+]
+}</p>
+<h5 id="single-choice">Пример ответа с single-choice:</h5>
+<p>js {
+"type": "single-choice",
+"skill": "choice",
+"workflow": {},
+"text": "Добро пожаловать!\n\nЯ бот-банк IQBankBot, ваш личный помощник в управлении финансами и банк в мессенджере!\n\nЧтобы совершить любую операцию (пополнить, перевести, запросить выписку и прочее), достаточно написать команду мне в чат 😉\n\nНажми на кнопку \"Узнать об IQBankBot\", чтобы узнать больше обо мне. А если ты уже клиент банка, выбери «Я клиент IQBank».",
+"isDropdown": true,
+"dropdownPlaceholder": "Select...",
+"choices": [
+{
+"title": "Я клиент IQBank",
+"value": "auth_client"
+},
+{
+"title": "Задать вопрос",
+"value": "have_question"
+},
+{
+"title": "Узнать об IQBankBot",
+"value": "about_iqbank"
+}
+],
+"markdown": true,
+"typing": true
+}</p>
+<h5 id="type-card">Пример ответа с "type": "card"</h5>
+<p>js{
+"responses": [
+{
+"type": "text",
+"workflow": {},
+"text": "Авторизация прошла успешно!",
+"markdown": true,
+"typing": true
+},
+{
+"type": "card",
+"title": "Visa Gold -7039\nОстаток: 8 973,00 RUR",
+"image": "https://iqbot.iqstore.ru/api/v1/bots/chat-bank/media/5lgn648ggh8pxnejfn0y-bank-mir-cutted.png",
+"actions": [
+{
+"title": "Действия с картой",
+"action": "Postback",
+"payload": "locked-action"
+}
+]
+},
+{
+"type": "card",
+"title": "Авангард - RUR -8775\nОстаток: 217,49 RUR",
+"image": "https://iqbot.iqstore.ru/api/v1/bots/chat-bank/media/5lgn648ggh8pxnejfn0y-bank-mir-cutted.png",
+"actions": [
+{
+"title": "Действия с картой",
+"action": "Postback",
+"payload": "locked-action"
+}
+]
+},
+{
+"type": "card",
+"title": "Авангард - RUR -8042\nОстаток: 2 186,46 RUR",
+"image": "https://iqbot.iqstore.ru/api/v1/bots/chat-bank/media/5lgn648ggh8pxnejfn0y-bank-mir-cutted.png",
+"actions": [
+{
+"title": "Действия с картой",
+"action": "Postback",
+"payload": "locked-action"
+}
+]
+}
+]
+}</p>
+<h5 id="type-carousel">Пример ответа с "type": "carousel"</h5>
+<p>js{
+"responses": [
+{
+"type": "text",
+"workflow": {},
+"text": "Выбери вид карты",
+"markdown": true,
+"typing": true
+},
+{
+"type": "carousel",
+"workflow": {},
+"items": [
+{
+"title": "Путешествия",
+"subtitle": "",
+"image": "https://iqbot.iqstore.ru/api/v1/bots/chat-bank/media/dwl4nqndn7nffggro1cm-bank-mir.png",
+"actions": [
+{
+"action": "Postback",
+"title": "Выпустить карту \"Путешествия\"",
+"text": "",
+"payload": "debet-card-mir-p"
+}
+]
+},
+{
+"title": "Возможности",
+"image": "https://iqbot.iqstore.ru/api/v1/bots/chat-bank/media/2x1zhafe6q861oku85b0-mir-card.png",
+"actions": [
+{
+"action": "Postback",
+"title": "Выпустить карту \"Возможности\"",
+"text": "",
+"payload": "debet-card-mir-v"
+}
+]
+}
+]
+}
+]
+}</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+        <script src="../js/version-select.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
