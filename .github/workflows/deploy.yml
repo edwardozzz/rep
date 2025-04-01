@@ -1,0 +1,43 @@
+name: Deploy Documentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Запуск деплоя при пуше в ветку main
+    paths:
+      - '**/*.md'   # Обновления файлов .md триггерят процесс
+      - 'mkdocs.yml'  # Обновления конфигурации mkdocs.yml тоже триггерят
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Клонируем репозиторий
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Шаг 2: Настройка Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      # Шаг 3: Установка зависимостей
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs mike
+
+      # Шаг 4: Сборка документации с использованием Mike (для версий)
+      - name: Build documentation
+        run: |
+          mike deploy v4.5.0  # Используем нужную версию, чтобы деплоить
+
+      # Шаг 5: Деплой на GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: main  # Указываем ветку main для деплоя
+          folder: ./site  # Папка, в которой собирается документация (по умолчанию для MkDocs)
+          token: ${{ secrets.GITHUB_TOKEN }}  # Токен для авторизации на GitHub
